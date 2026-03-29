@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas - Sistema Acadêmico</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Lista de tarefas</h1>
+    </header>
+
+    <main class="container">
+        <section id="cadastro">
+            <h3>Nova Tarefa</h3>
+            <form id="formTarefa">
+                <input type="hidden" id="index">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Título da tarefa</label>
+                        <input type="text" id="titulo" placeholder="Ex: Pintar Casa" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Prioridade tarefa</label>
+                        <select id="prioridade" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Baixa">Baixa</option>
+                            <option value="Média">Média</option>
+                            <option value="Alta">Alta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status da tarefa</label>
+                        <select id="status" required>
+                            <option value="Pendente">Pendente</option>
+                            <option value="Concluída">Concluída</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data tarefa</label>
+                        <input type="date" id="dataCriacao" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Descrição da tarefa</label>
+                    <textarea id="descricao" placeholder="Descrição detalhada..." required></textarea>
+                </div>
+                
+                <button type="submit" id="btnSalvar">cadastrar Tarefa</button>
+            </form>
+        </section>
+
+        <section id="listagem">
+            <h3>Minhas Tarefas</h3>
+            <div class="filtros">
+                <input type="text" id="busca" placeholder="Pesquisar tarefas pelo título..." oninput="buscarTarefa()">
+            </div>
+            
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Tarefa</th>
+                            <th>Prioridade</th>
+                            <th>Data cadastro</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaTarefas"></tbody>
+                </table>
+            </div>
+            <div id="mensagemVazia"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Desenvolvido por Ana Luiza - Ru5318638</p>
+    </footer>
+
+    <script src="assets/js/tarefas.js"></script>
+</body>
+</html>
